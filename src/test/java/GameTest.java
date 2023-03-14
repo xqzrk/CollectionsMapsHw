@@ -1,9 +1,7 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -24,8 +22,8 @@ public class GameTest {
         repo.register(player1);
         repo.register(player2);
         repo.register(player3);
-        List<Player> actual = repo.playerList;
-        List<Player> expected = List.of(player1, player2, player3);
+        HashMap<String, Player> actual = repo.playerList;
+        HashMap<String, Player> expected = new HashMap<>((Map.of("Razor", player1, "Reaper", player2, "Viper", player3)));
 
         assertTrue(actual.equals(expected));
     }
@@ -73,17 +71,6 @@ public class GameTest {
     }
 
     @Test
-    public void registrationCheck() {
-        Game repo = new Game();
-        repo.register(player1);
-        repo.register(player2);
-        Player expected = player1;
-        Player actual = repo.isRegistered("Razor");
-
-        assertTrue(expected.equals(actual));
-    }
-
-    @Test
     public void shouldMakeRoundEqualStrength() {
         Game repo = new Game();
         repo.register(player2);
@@ -94,3 +81,4 @@ public class GameTest {
         Assertions.assertEquals(expected, actual);
     }
 }
+
