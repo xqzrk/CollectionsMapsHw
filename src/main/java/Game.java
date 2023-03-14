@@ -11,7 +11,7 @@ public class Game {
 
     public Player isRegistered(String name) {
         for (Player player : playerList) {
-            if (player.getName() == name) {
+            if (player.getName().equals(name)) {
                 return player;
             }
         }
@@ -34,12 +34,12 @@ public class Game {
         Player player2 = new Player(0, null, 0);
 
         for (Player player : playerList) {
-            if (player.getName() == playerName1) {
+            if (player.getName().equals(playerName1)) {
                 player1 = player;
             }
         }
         for (Player player : playerList) {
-            if (player.getName() == playerName2) {
+            if (player.getName().equals(playerName2)) {
                 player2 = player;
             }
         }
